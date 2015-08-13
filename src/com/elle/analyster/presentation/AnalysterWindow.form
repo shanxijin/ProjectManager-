@@ -118,34 +118,34 @@
             <Property name="text" type="java.lang.String" value="View"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItemViewAssign">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemViewTasks">
               <Properties>
-                <Property name="text" type="java.lang.String" value="View Assignments Columns"/>
+                <Property name="text" type="java.lang.String" value="View Tasks Columns"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItemViewReports">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemViewTaskFiles">
               <Properties>
-                <Property name="text" type="java.lang.String" value="View Reports Columns"/>
+                <Property name="text" type="java.lang.String" value="View Task_Files Columns"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItemViewAllAssign">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemViewAllTasks">
               <Properties>
-                <Property name="text" type="java.lang.String" value="View All Assignments"/>
+                <Property name="text" type="java.lang.String" value="View All Tasks"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemViewAllAssignActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemViewAllTasksActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItemViewActiveAssign">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemViewTaskNotes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="View Active Assigments"/>
+                <Property name="text" type="java.lang.String" value="View Task_Notes"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemViewActiveAssignActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemViewTaskNotesActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -253,7 +253,7 @@
                       <Component id="labelTimeLastUpdate" max="32767" attributes="0"/>
                       <Component id="labelRecords" pref="328" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                  <EmptySpace pref="59" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -287,20 +287,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnClearAllFilter" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="comboBoxSearch" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
-                              <Component id="textFieldForSearch" min="-2" pref="141" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <Component id="btnClearAllFilter" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="comboBoxSearch" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="textFieldForSearch" min="-2" pref="141" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -415,31 +409,60 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Assignments">
-                    <Property name="tabTitle" type="java.lang.String" value="Assignments"/>
+                  <JTabbedPaneConstraints tabName="tasks">
+                    <Property name="tabTitle" type="java.lang.String" value="tasks"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="assignmentTable">
+                <Component class="javax.swing.JTable" name="tasksTable">
                   <Properties>
                     <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="7" rowCount="15">
-                        <Column editable="false" title="ID" type="java.lang.Integer"/>
-                        <Column editable="true" title="symbol" type="java.lang.Object"/>
-                        <Column editable="true" title="analyst" type="java.lang.Object"/>
-                        <Column editable="true" title="priority" type="java.lang.Object"/>
+                      <Table columnCount="11" rowCount="15">
+                        <Column editable="false" title="taskID" type="java.lang.Integer"/>
+                        <Column editable="true" title="num" type="java.lang.Object"/>
+                        <Column editable="true" title="title" type="java.lang.Object"/>
+                        <Column editable="true" title="step" type="java.lang.Object"/>
+                        <Column editable="true" title="description" type="java.lang.Object"/>
+                        <Column editable="true" title="instructions" type="java.lang.Object"/>
+                        <Column editable="true" title="programmer" type="java.lang.Object"/>
                         <Column editable="true" title="dateAssigned" type="java.lang.Object"/>
+                        <Column editable="true" title="rk" type="java.lang.Object"/>
+                        <Column editable="true" title="done" type="java.lang.Object"/>
                         <Column editable="true" title="dateDone" type="java.lang.Object"/>
-                        <Column editable="true" title="notes" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="autoResizeMode" type="int" value="4"/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -496,47 +519,36 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Reports">
-                    <Property name="tabTitle" type="java.lang.String" value="Reports"/>
+                  <JTabbedPaneConstraints tabName="task_files">
+                    <Property name="tabTitle" type="java.lang.String" value="task_files"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="reportTable">
+                <Component class="javax.swing.JTable" name="task_filesTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="8" rowCount="15">
-                        <Column editable="true" title="ID" type="java.lang.Integer"/>
-                        <Column editable="true" title="symbol" type="java.lang.String">
-                          <Data value=""/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                          <Data value="null"/>
-                        </Column>
-                        <Column editable="true" title="author" type="java.lang.String"/>
-                        <Column editable="true" title="analysisDate" type="java.lang.Object"/>
+                        <Column editable="true" title="fileID" type="java.lang.Integer"/>
+                        <Column editable="true" title="taskID" type="java.lang.Integer"/>
+                        <Column editable="true" title="submitter" type="java.lang.Object"/>
+                        <Column editable="true" title="step" type="java.lang.Object"/>
+                        <Column editable="true" title="date_" type="java.lang.Object"/>
+                        <Column editable="true" title="files" type="java.lang.Object"/>
                         <Column editable="true" title="path" type="java.lang.Object"/>
-                        <Column editable="true" title="document" type="java.lang.Object"/>
                         <Column editable="true" title="notes" type="java.lang.Object"/>
-                        <Column editable="true" title="notesL" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="autoResizeMode" type="int" value="4"/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -587,30 +599,60 @@
             <Container class="javax.swing.JScrollPane" name="jScrollPane3">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Assignments_Archived">
-                    <Property name="tabTitle" type="java.lang.String" value="Assignments_Archived"/>
+                  <JTabbedPaneConstraints tabName="task_notes">
+                    <Property name="tabTitle" type="java.lang.String" value="task_notes"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="archiveTable">
+                <Component class="javax.swing.JTable" name="task_notesTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="7" rowCount="15">
-                        <Column editable="false" title="ID" type="java.lang.Integer"/>
-                        <Column editable="true" title="symbol" type="java.lang.Object"/>
-                        <Column editable="true" title="analyst" type="java.lang.Object"/>
-                        <Column editable="true" title="priority" type="java.lang.Object"/>
-                        <Column editable="true" title="dateAssigned" type="java.lang.Object"/>
-                        <Column editable="true" title="dateDone" type="java.lang.Object"/>
-                        <Column editable="true" title="notes" type="java.lang.Object"/>
+                      <Table columnCount="5" rowCount="15">
+                        <Column editable="false" title="noteID" type="java.lang.Integer"/>
+                        <Column editable="true" title="taskID" type="java.lang.Integer"/>
+                        <Column editable="true" title="submitter" type="java.lang.Object"/>
+                        <Column editable="true" title="status_notes" type="java.lang.Object"/>
+                        <Column editable="true" title="_date" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="autoscrolls" type="boolean" value="false"/>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
                     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[10, 240]"/>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                 </Component>

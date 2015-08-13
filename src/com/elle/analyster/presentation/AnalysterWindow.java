@@ -129,22 +129,22 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         initComponents(); // generated code
         
         // set names to tables (this was in tabbedPanelChanged method)
-        assignmentTable.setName(TASKS_TABLE_NAME);
-        reportTable.setName(TASKFILES_TABLE_NAME);
-        archiveTable.setName(TASKNOTES_TABLE_NAME);
+        tasksTable.setName(TASKS_TABLE_NAME);
+        task_filesTable.setName(TASKFILES_TABLE_NAME);
+        task_notesTable.setName(TASKNOTES_TABLE_NAME);
         
         // set tables to tabName objects
-        tabs.get(TASKS_TABLE_NAME).setTable(assignmentTable);
-        tabs.get(TASKFILES_TABLE_NAME).setTable(reportTable);
-        tabs.get(TASKNOTES_TABLE_NAME).setTable(archiveTable);
+        tabs.get(TASKS_TABLE_NAME).setTable(tasksTable);
+        tabs.get(TASKFILES_TABLE_NAME).setTable(task_filesTable);
+        tabs.get(TASKNOTES_TABLE_NAME).setTable(task_notesTable);
         
         // set array variable of stored column names of the tables
         // this is just to store and use the information
         // to actually change the table names it should be done
         // through properties in the gui design tabName
-        tabs.get(TASKS_TABLE_NAME).setTableColNames(assignmentTable);
-        tabs.get(TASKFILES_TABLE_NAME).setTableColNames(reportTable);
-        tabs.get(TASKNOTES_TABLE_NAME).setTableColNames(archiveTable);
+        tabs.get(TASKS_TABLE_NAME).setTableColNames(tasksTable);
+        tabs.get(TASKFILES_TABLE_NAME).setTableColNames(task_filesTable);
+        tabs.get(TASKNOTES_TABLE_NAME).setTableColNames(task_notesTable);
         
         // this sets the KeyboardFocusManger
         setKeyboardFocusManager();
@@ -160,9 +160,9 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         
         // add filters for each table
         // must be before setting ColumnPopupMenu because this is its parameter
-        tabs.get(TASKS_TABLE_NAME).setFilter(new TableFilter(assignmentTable));
-        tabs.get(TASKFILES_TABLE_NAME).setFilter(new TableFilter(reportTable));
-        tabs.get(TASKNOTES_TABLE_NAME).setFilter(new TableFilter(archiveTable));
+        tabs.get(TASKS_TABLE_NAME).setFilter(new TableFilter(tasksTable));
+        tabs.get(TASKFILES_TABLE_NAME).setFilter(new TableFilter(task_filesTable));
+        tabs.get(TASKNOTES_TABLE_NAME).setFilter(new TableFilter(task_notesTable));
         
         // initialize columnPopupMenu 
         // - must be before setTerminalFunctions is called
@@ -183,14 +183,14 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         initTotalRowCounts(tabs);
         
         // set the cell renderers for each tabName
-        tabs.get(TASKS_TABLE_NAME).setCellRenderer(new JTableCellRenderer(assignmentTable));
-        tabs.get(TASKFILES_TABLE_NAME).setCellRenderer(new JTableCellRenderer(reportTable));
-        tabs.get(TASKNOTES_TABLE_NAME).setCellRenderer(new JTableCellRenderer(archiveTable));
+        tabs.get(TASKS_TABLE_NAME).setCellRenderer(new JTableCellRenderer(tasksTable));
+        tabs.get(TASKFILES_TABLE_NAME).setCellRenderer(new JTableCellRenderer(task_filesTable));
+        tabs.get(TASKNOTES_TABLE_NAME).setCellRenderer(new JTableCellRenderer(task_notesTable));
         
         // set the modified table data objects for each tabName
-        tabs.get(TASKS_TABLE_NAME).setTableData(new ModifiedTableData(assignmentTable));
-        tabs.get(TASKFILES_TABLE_NAME).setTableData(new ModifiedTableData(reportTable));
-        tabs.get(TASKNOTES_TABLE_NAME).setTableData(new ModifiedTableData(archiveTable));
+        tabs.get(TASKS_TABLE_NAME).setTableData(new ModifiedTableData(tasksTable));
+        tabs.get(TASKFILES_TABLE_NAME).setTableData(new ModifiedTableData(task_filesTable));
+        tabs.get(TASKNOTES_TABLE_NAME).setTableData(new ModifiedTableData(task_notesTable));
         
         // set title of window to Analyster
         this.setTitle("Analyster");
@@ -216,11 +216,11 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         jPanel5 = new javax.swing.JPanel();
         tabbedPanel = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        assignmentTable = new javax.swing.JTable();
+        tasksTable = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        reportTable = new javax.swing.JTable();
+        task_filesTable = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        archiveTable = new javax.swing.JTable();
+        task_notesTable = new javax.swing.JTable();
         jPanelEdit = new javax.swing.JPanel();
         btnBatchEdit = new javax.swing.JButton();
         btnAddRecords = new javax.swing.JButton();
@@ -253,10 +253,10 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         menuFind = new javax.swing.JMenu();
         menuReports = new javax.swing.JMenu();
         menuView = new javax.swing.JMenu();
-        menuItemViewAssign = new javax.swing.JMenuItem();
-        menuItemViewReports = new javax.swing.JMenuItem();
-        menuItemViewAllAssign = new javax.swing.JMenuItem();
-        menuItemViewActiveAssign = new javax.swing.JMenuItem();
+        menuItemViewTasks = new javax.swing.JMenuItem();
+        menuItemViewTaskFiles = new javax.swing.JMenuItem();
+        menuItemViewAllTasks = new javax.swing.JMenuItem();
+        menuItemViewTaskNotes = new javax.swing.JMenuItem();
         menuTools = new javax.swing.JMenu();
         menuItemReloadData = new javax.swing.JMenuItem();
         menuItemLogChkBx = new javax.swing.JCheckBoxMenuItem();
@@ -305,17 +305,14 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(searchPanelLayout.createSequentialGroup()
-                        .addComponent(btnClearAllFilter)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(searchPanelLayout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(textFieldForSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSearch)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(btnClearAllFilter)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldForSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSearch)
+                .addGap(17, 17, 17))
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +340,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                 .addGroup(addPanel_controlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labelTimeLastUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelRecords, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         addPanel_controlLayout.setVerticalGroup(
             addPanel_controlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,34 +363,34 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        assignmentTable.setAutoCreateRowSorter(true);
-        assignmentTable.setModel(new javax.swing.table.DefaultTableModel(
+        tasksTable.setAutoCreateRowSorter(true);
+        tasksTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "symbol", "analyst", "priority", "dateAssigned", "dateDone", "notes"
+                "taskID", "num", "title", "step", "description", "instructions", "programmer", "dateAssigned", "rk", "done", "dateDone"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true, true
+                false, true, true, true, true, true, true, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -404,19 +401,19 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                 return canEdit [columnIndex];
             }
         });
-        assignmentTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        assignmentTable.setMinimumSize(new java.awt.Dimension(10, 240));
-        assignmentTable.setName(""); // NOI18N
-        assignmentTable.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(assignmentTable);
+        tasksTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tasksTable.setMinimumSize(new java.awt.Dimension(10, 240));
+        tasksTable.setName(""); // NOI18N
+        tasksTable.setRequestFocusEnabled(false);
+        jScrollPane1.setViewportView(tasksTable);
 
-        tabbedPanel.addTab("Assignments", jScrollPane1);
+        tabbedPanel.addTab("tasks", jScrollPane1);
 
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        reportTable.setModel(new javax.swing.table.DefaultTableModel(
+        task_filesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, "", null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -433,50 +430,50 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "symbol", "author", "analysisDate", "path", "document", "notes", "notesL"
+                "fileID", "taskID", "submitter", "step", "date_", "files", "path", "notes"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        reportTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        reportTable.setMinimumSize(new java.awt.Dimension(10, 240));
-        jScrollPane4.setViewportView(reportTable);
+        task_filesTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        task_filesTable.setMinimumSize(new java.awt.Dimension(10, 240));
+        jScrollPane4.setViewportView(task_filesTable);
 
-        tabbedPanel.addTab("Reports", jScrollPane4);
+        tabbedPanel.addTab("task_files", jScrollPane4);
 
-        archiveTable.setModel(new javax.swing.table.DefaultTableModel(
+        task_notesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "symbol", "analyst", "priority", "dateAssigned", "dateDone", "notes"
+                "noteID", "taskID", "submitter", "status_notes", "_date"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true, true
+                false, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -487,11 +484,11 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                 return canEdit [columnIndex];
             }
         });
-        archiveTable.setAutoscrolls(false);
-        archiveTable.setMinimumSize(new java.awt.Dimension(10, 240));
-        jScrollPane3.setViewportView(archiveTable);
+        task_notesTable.setAutoscrolls(false);
+        task_notesTable.setMinimumSize(new java.awt.Dimension(10, 240));
+        jScrollPane3.setViewportView(task_notesTable);
 
-        tabbedPanel.addTab("Assignments_Archived", jScrollPane3);
+        tabbedPanel.addTab("task_notes", jScrollPane3);
 
         jPanelEdit.setPreferredSize(new java.awt.Dimension(636, 180));
 
@@ -748,31 +745,31 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
 
         menuView.setText("View");
 
-        menuItemViewAssign.setText("View Assignments Columns");
-        menuItemViewAssign.setEnabled(false);
-        menuView.add(menuItemViewAssign);
+        menuItemViewTasks.setText("View Tasks Columns");
+        menuItemViewTasks.setEnabled(false);
+        menuView.add(menuItemViewTasks);
 
-        menuItemViewReports.setText("View Reports Columns");
-        menuItemViewReports.setEnabled(false);
-        menuView.add(menuItemViewReports);
+        menuItemViewTaskFiles.setText("View Task_Files Columns");
+        menuItemViewTaskFiles.setEnabled(false);
+        menuView.add(menuItemViewTaskFiles);
 
-        menuItemViewAllAssign.setText("View All Assignments");
-        menuItemViewAllAssign.setEnabled(false);
-        menuItemViewAllAssign.addActionListener(new java.awt.event.ActionListener() {
+        menuItemViewAllTasks.setText("View All Tasks");
+        menuItemViewAllTasks.setEnabled(false);
+        menuItemViewAllTasks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemViewAllAssignActionPerformed(evt);
+                menuItemViewAllTasksActionPerformed(evt);
             }
         });
-        menuView.add(menuItemViewAllAssign);
+        menuView.add(menuItemViewAllTasks);
 
-        menuItemViewActiveAssign.setText("View Active Assigments");
-        menuItemViewActiveAssign.setEnabled(false);
-        menuItemViewActiveAssign.addActionListener(new java.awt.event.ActionListener() {
+        menuItemViewTaskNotes.setText("View Task_Notes");
+        menuItemViewTaskNotes.setEnabled(false);
+        menuItemViewTaskNotes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemViewActiveAssignActionPerformed(evt);
+                menuItemViewTaskNotesActionPerformed(evt);
             }
         });
-        menuView.add(menuItemViewActiveAssign);
+        menuView.add(menuItemViewTaskNotes);
 
         menuBar.add(menuView);
 
@@ -891,8 +888,8 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
     // not sure what this is
     private void menuItemAWSAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAWSAssignActionPerformed
 
-        loadTable(assignmentTable);
-        loadTable(reportTable);
+        loadTable(tasksTable);
+        loadTable(task_filesTable);
 
 
     }//GEN-LAST:event_menuItemAWSAssignActionPerformed
@@ -944,7 +941,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         int commandStart = jTextAreaSQL.getText().lastIndexOf(">>") + 2;
         String command = jTextAreaSQL.getText().substring(commandStart);  
         if (command.toLowerCase().contains("select")){
-            loadTable(command, assignmentTable);
+            loadTable(command, tasksTable);
         } else {
             try {
                     statement.executeUpdate(command);
@@ -1151,19 +1148,19 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
      * calls load data method
      * @param evt 
      */
-    private void menuItemViewAllAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemViewAllAssignActionPerformed
+    private void menuItemViewAllTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemViewAllTasksActionPerformed
         loadData();
-    }//GEN-LAST:event_menuItemViewAllAssignActionPerformed
+    }//GEN-LAST:event_menuItemViewAllTasksActionPerformed
 
     /**
      * jMenuItemViewActiveAssigActionPerformed
      * load only active data from analyst
      * @param evt 
      */
-    private void menuItemViewActiveAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemViewActiveAssignActionPerformed
+    private void menuItemViewTaskNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemViewTaskNotesActionPerformed
 
         String sqlC = "select A.* from Assignments A left join t_analysts T\n" + "on A.analyst = T.analyst\n" + "where T.active = 1\n" + "order by A.symbol";
-        loadTable(sqlC, assignmentTable);
+        loadTable(sqlC, tasksTable);
 
         String tabName = TASKS_TABLE_NAME;
         Tab tab = tabs.get(tabName);
@@ -1174,7 +1171,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         // set label record information
         String recordsLabel = tab.getRecordsLabel();
         labelRecords.setText(recordsLabel); 
-    }//GEN-LAST:event_menuItemViewActiveAssignActionPerformed
+    }//GEN-LAST:event_menuItemViewTaskNotesActionPerformed
 
     /**
      * btnClearAllFilterActionPerformed
@@ -1229,8 +1226,8 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
      */
     private void menuItemArchiveRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemArchiveRecordActionPerformed
 
-        int rowSelected = assignmentTable.getSelectedRows().length;
-        int[] rowsSelected = assignmentTable.getSelectedRows();
+        int rowSelected = tasksTable.getSelectedRows().length;
+        int[] rowsSelected = tasksTable.getSelectedRows();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         String today = dateFormat.format(date);
@@ -1238,9 +1235,9 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         // Delete Selected Records from Assignments
         if (rowSelected != -1) {
             for (int i = 0; i < rowSelected; i++) {
-                String analyst = (String) assignmentTable.getValueAt(rowsSelected[i], 2);
-                Integer selectedTask = (Integer) assignmentTable.getValueAt(rowsSelected[i], 0); // Add Note to selected taskID
-                String sqlDelete = "UPDATE " + database + "." + assignmentTable.getName() + " SET analyst = \"\",\n"
+                String analyst = (String) tasksTable.getValueAt(rowsSelected[i], 2);
+                Integer selectedTask = (Integer) tasksTable.getValueAt(rowsSelected[i], 0); // Add Note to selected taskID
+                String sqlDelete = "UPDATE " + database + "." + tasksTable.getName() + " SET analyst = \"\",\n"
                         + " priority=null,\n"
                         + " dateAssigned= '" + today + "',"
                         + " dateDone=null,\n"
@@ -1258,19 +1255,19 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         if (rowSelected != -1) {
 
             for (int i = 0; i < rowSelected; i++) {
-                String sqlInsert = "INSERT INTO " + database + "." + archiveTable.getName() + " (symbol, analyst, priority, dateAssigned,dateDone,notes) VALUES (";
+                String sqlInsert = "INSERT INTO " + database + "." + task_notesTable.getName() + " (symbol, analyst, priority, dateAssigned,dateDone,notes) VALUES (";
                 int numRow = rowsSelected[i];
-                for (int j = 1; j < assignmentTable.getColumnCount() - 1; j++) {
-                    if (assignmentTable.getValueAt(numRow, j) == null) {
+                for (int j = 1; j < tasksTable.getColumnCount() - 1; j++) {
+                    if (tasksTable.getValueAt(numRow, j) == null) {
                         sqlInsert += null + ",";
                     } else {
-                        sqlInsert += "'" + assignmentTable.getValueAt(numRow, j) + "',";
+                        sqlInsert += "'" + tasksTable.getValueAt(numRow, j) + "',";
                     }
                 }
-                if (assignmentTable.getValueAt(numRow, assignmentTable.getColumnCount() - 1) == null) {
+                if (tasksTable.getValueAt(numRow, tasksTable.getColumnCount() - 1) == null) {
                     sqlInsert += null + ")";
                 } else {
-                    sqlInsert += "'" + assignmentTable.getValueAt(numRow, assignmentTable.getColumnCount() - 1) + "')";
+                    sqlInsert += "'" + tasksTable.getValueAt(numRow, tasksTable.getColumnCount() - 1) + "')";
                 }
                 try {
                     statement.executeUpdate(sqlInsert);
@@ -1279,9 +1276,9 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                     e.printStackTrace();
                 }
             }
-            loadTable(assignmentTable);
-            loadTable(archiveTable);
-            assignmentTable.setRowSelectionInterval(rowsSelected[0], rowsSelected[rowSelected - 1]);
+            loadTable(tasksTable);
+            loadTable(task_notesTable);
+            tasksTable.setRowSelectionInterval(rowsSelected[0], rowsSelected[rowSelected - 1]);
             JOptionPane.showMessageDialog(null, rowSelected + " Record(s) Archived!");
 
         } else {
@@ -1295,25 +1292,25 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
      */
     private void menuItemActivateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActivateRecordActionPerformed
        
-        int rowSelected = archiveTable.getSelectedRows().length;
-        int[] rowsSelected = archiveTable.getSelectedRows();
+        int rowSelected = task_notesTable.getSelectedRows().length;
+        int[] rowsSelected = task_notesTable.getSelectedRows();
         // Archive Selected Records in Assignments Archive
         if (rowSelected != -1) {
 
             for (int i = 0; i < rowSelected; i++) {
-                String sqlInsert = "INSERT INTO " + database + "." + assignmentTable.getName() + "(symbol, analyst, priority, dateAssigned,dateDone,notes) VALUES ( ";
+                String sqlInsert = "INSERT INTO " + database + "." + tasksTable.getName() + "(symbol, analyst, priority, dateAssigned,dateDone,notes) VALUES ( ";
                 int numRow = rowsSelected[i];
-                for (int j = 1; j < archiveTable.getColumnCount() - 1; j++) {
-                    if (archiveTable.getValueAt(numRow, j) == null) {
+                for (int j = 1; j < task_notesTable.getColumnCount() - 1; j++) {
+                    if (task_notesTable.getValueAt(numRow, j) == null) {
                         sqlInsert += null + ",";
                     } else {
-                        sqlInsert += "'" + archiveTable.getValueAt(numRow, j) + "',";
+                        sqlInsert += "'" + task_notesTable.getValueAt(numRow, j) + "',";
                     }
                 }
-                if (archiveTable.getValueAt(numRow, archiveTable.getColumnCount() - 1) == null) {
+                if (task_notesTable.getValueAt(numRow, task_notesTable.getColumnCount() - 1) == null) {
                     sqlInsert += null + ")";
                 } else {
-                    sqlInsert += "'" + archiveTable.getValueAt(numRow, archiveTable.getColumnCount() - 1) + "')";
+                    sqlInsert += "'" + task_notesTable.getValueAt(numRow, task_notesTable.getColumnCount() - 1) + "')";
                 }
                 try {
                     statement.executeUpdate(sqlInsert);
@@ -1324,9 +1321,9 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                 }
             }
 
-            archiveTable.setRowSelectionInterval(rowsSelected[0], rowsSelected[0]);
-            loadTable(archiveTable);
-            loadTable(assignmentTable);
+            task_notesTable.setRowSelectionInterval(rowsSelected[0], rowsSelected[0]);
+            loadTable(task_notesTable);
+            loadTable(tasksTable);
 
             JOptionPane.showMessageDialog(null, rowSelected + " Record(s) Activated!");
 
@@ -2101,8 +2098,6 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
     // @formatter:off
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addPanel_control;
-    private javax.swing.JTable archiveTable;
-    private javax.swing.JTable assignmentTable;
     private javax.swing.JButton btnAddRecords;
     private javax.swing.JButton btnBatchEdit;
     private javax.swing.JButton btnCancelEditMode;
@@ -2145,18 +2140,20 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
     private javax.swing.JCheckBoxMenuItem menuItemSQLCmdChkBx;
     private javax.swing.JMenuItem menuItemSaveFile;
     private javax.swing.JMenuItem menuItemVersion;
-    private javax.swing.JMenuItem menuItemViewActiveAssign;
-    private javax.swing.JMenuItem menuItemViewAllAssign;
-    private javax.swing.JMenuItem menuItemViewAssign;
-    private javax.swing.JMenuItem menuItemViewReports;
+    private javax.swing.JMenuItem menuItemViewAllTasks;
+    private javax.swing.JMenuItem menuItemViewTaskFiles;
+    private javax.swing.JMenuItem menuItemViewTaskNotes;
+    private javax.swing.JMenuItem menuItemViewTasks;
     private javax.swing.JMenu menuPrint;
     private javax.swing.JMenu menuReports;
     private javax.swing.JMenu menuSelectConn;
     private javax.swing.JMenu menuTools;
     private javax.swing.JMenu menuView;
-    private javax.swing.JTable reportTable;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JTabbedPane tabbedPanel;
+    private javax.swing.JTable task_filesTable;
+    private javax.swing.JTable task_notesTable;
+    private javax.swing.JTable tasksTable;
     private javax.swing.JTextField textFieldForSearch;
     // End of variables declaration//GEN-END:variables
     // @formatter:on
