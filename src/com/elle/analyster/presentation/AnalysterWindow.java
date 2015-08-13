@@ -83,68 +83,68 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         
         // create tabName objects -> this has to be before initcomponents();
         tabs.put(TASKS_TABLE_NAME, new Tab());
-        tabs.put(REPORTS_TABLE_NAME, new Tab());
-        tabs.put(ARCHIVE_TABLE_NAME, new Tab());
+        tabs.put(TASKFILES_TABLE_NAME, new Tab());
+        tabs.put(TASKNOTES_TABLE_NAME, new Tab());
         
         // set table names 
         tabs.get(TASKS_TABLE_NAME).setTableName(TASKS_TABLE_NAME);
-        tabs.get(REPORTS_TABLE_NAME).setTableName(REPORTS_TABLE_NAME);
-        tabs.get(ARCHIVE_TABLE_NAME).setTableName(ARCHIVE_TABLE_NAME);
+        tabs.get(TASKFILES_TABLE_NAME).setTableName(TASKFILES_TABLE_NAME);
+        tabs.get(TASKNOTES_TABLE_NAME).setTableName(TASKNOTES_TABLE_NAME);
         
         // set the search fields for the comboBox for each tabName
-        tabs.get(TASKS_TABLE_NAME).setSearchFields(ASSIGNMENTS_SEARCH_FIELDS);
-        tabs.get(REPORTS_TABLE_NAME).setSearchFields(REPORTS_SEARCH_FIELDS);
-        tabs.get(ARCHIVE_TABLE_NAME).setSearchFields(ARCHIVE_SEARCH_FIELDS);
+        tabs.get(TASKS_TABLE_NAME).setSearchFields(TASKS_SEARCH_FIELDS);
+        tabs.get(TASKFILES_TABLE_NAME).setSearchFields(TASKFILES_SEARCH_FIELDS);
+        tabs.get(TASKNOTES_TABLE_NAME).setSearchFields(TASKNOTES_SEARCH_FIELDS);
         
         // set the search fields for the comboBox for each tabName
         tabs.get(TASKS_TABLE_NAME).setBatchEditFields(ASSIGNMENTS_BATCHEDIT_CB_FIELDS);
-        tabs.get(REPORTS_TABLE_NAME).setBatchEditFields(REPORTS_BATCHEDIT_CB_FIELDS);
-        tabs.get(ARCHIVE_TABLE_NAME).setBatchEditFields(ARCHIVE_BATCHEDIT_CB_FIELDS);
+        tabs.get(TASKFILES_TABLE_NAME).setBatchEditFields(REPORTS_BATCHEDIT_CB_FIELDS);
+        tabs.get(TASKNOTES_TABLE_NAME).setBatchEditFields(ARCHIVE_BATCHEDIT_CB_FIELDS);
         
         // set column width percents to tables of the tabName objects
-        tabs.get(TASKS_TABLE_NAME).setColWidthPercent(COL_WIDTH_PER_ASSIGNMENTS);
-        tabs.get(REPORTS_TABLE_NAME).setColWidthPercent(COL_WIDTH_PER_REPORTS);
-        tabs.get(ARCHIVE_TABLE_NAME).setColWidthPercent(COL_WIDTH_PER_ARCHIVE);
+        tabs.get(TASKS_TABLE_NAME).setColWidthPercent(COL_WIDTH_PER_TASKS);
+        tabs.get(TASKFILES_TABLE_NAME).setColWidthPercent(COL_WIDTH_PER_REPORTS);
+        tabs.get(TASKNOTES_TABLE_NAME).setColWidthPercent(COL_WIDTH_PER_ARCHIVE);
         
         // set Activate Records menu item enabled for each tabName
         tabs.get(TASKS_TABLE_NAME).setActivateRecordMenuItemEnabled(false);
-        tabs.get(REPORTS_TABLE_NAME).setActivateRecordMenuItemEnabled(false);
-        tabs.get(ARCHIVE_TABLE_NAME).setActivateRecordMenuItemEnabled(true);
+        tabs.get(TASKFILES_TABLE_NAME).setActivateRecordMenuItemEnabled(false);
+        tabs.get(TASKNOTES_TABLE_NAME).setActivateRecordMenuItemEnabled(true);
         
         // set Archive Records menu item enabled for each tabName
         tabs.get(TASKS_TABLE_NAME).setArchiveRecordMenuItemEnabled(true);
-        tabs.get(REPORTS_TABLE_NAME).setArchiveRecordMenuItemEnabled(false);
-        tabs.get(ARCHIVE_TABLE_NAME).setArchiveRecordMenuItemEnabled(false);
+        tabs.get(TASKFILES_TABLE_NAME).setArchiveRecordMenuItemEnabled(false);
+        tabs.get(TASKNOTES_TABLE_NAME).setArchiveRecordMenuItemEnabled(false);
         
         // set add records button visible for each tabName
         tabs.get(TASKS_TABLE_NAME).setAddRecordsBtnVisible(true);
-        tabs.get(REPORTS_TABLE_NAME).setAddRecordsBtnVisible(true);
-        tabs.get(ARCHIVE_TABLE_NAME).setAddRecordsBtnVisible(false);
+        tabs.get(TASKFILES_TABLE_NAME).setAddRecordsBtnVisible(true);
+        tabs.get(TASKNOTES_TABLE_NAME).setAddRecordsBtnVisible(false);
         
         // set batch edit button visible for each tabName
         tabs.get(TASKS_TABLE_NAME).setBatchEditBtnVisible(true);
-        tabs.get(REPORTS_TABLE_NAME).setBatchEditBtnVisible(true);
-        tabs.get(ARCHIVE_TABLE_NAME).setBatchEditBtnVisible(false);
+        tabs.get(TASKFILES_TABLE_NAME).setBatchEditBtnVisible(true);
+        tabs.get(TASKNOTES_TABLE_NAME).setBatchEditBtnVisible(false);
         
         initComponents(); // generated code
         
         // set names to tables (this was in tabbedPanelChanged method)
         assignmentTable.setName(TASKS_TABLE_NAME);
-        reportTable.setName(REPORTS_TABLE_NAME);
-        archiveTable.setName(ARCHIVE_TABLE_NAME);
+        reportTable.setName(TASKFILES_TABLE_NAME);
+        archiveTable.setName(TASKNOTES_TABLE_NAME);
         
         // set tables to tabName objects
         tabs.get(TASKS_TABLE_NAME).setTable(assignmentTable);
-        tabs.get(REPORTS_TABLE_NAME).setTable(reportTable);
-        tabs.get(ARCHIVE_TABLE_NAME).setTable(archiveTable);
+        tabs.get(TASKFILES_TABLE_NAME).setTable(reportTable);
+        tabs.get(TASKNOTES_TABLE_NAME).setTable(archiveTable);
         
         // set array variable of stored column names of the tables
         // this is just to store and use the information
         // to actually change the table names it should be done
         // through properties in the gui design tabName
         tabs.get(TASKS_TABLE_NAME).setTableColNames(assignmentTable);
-        tabs.get(REPORTS_TABLE_NAME).setTableColNames(reportTable);
-        tabs.get(ARCHIVE_TABLE_NAME).setTableColNames(archiveTable);
+        tabs.get(TASKFILES_TABLE_NAME).setTableColNames(reportTable);
+        tabs.get(TASKNOTES_TABLE_NAME).setTableColNames(archiveTable);
         
         // this sets the KeyboardFocusManger
         setKeyboardFocusManager();
@@ -161,18 +161,18 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         // add filters for each table
         // must be before setting ColumnPopupMenu because this is its parameter
         tabs.get(TASKS_TABLE_NAME).setFilter(new TableFilter(assignmentTable));
-        tabs.get(REPORTS_TABLE_NAME).setFilter(new TableFilter(reportTable));
-        tabs.get(ARCHIVE_TABLE_NAME).setFilter(new TableFilter(archiveTable));
+        tabs.get(TASKFILES_TABLE_NAME).setFilter(new TableFilter(reportTable));
+        tabs.get(TASKNOTES_TABLE_NAME).setFilter(new TableFilter(archiveTable));
         
         // initialize columnPopupMenu 
         // - must be before setTerminalFunctions is called
         // - because the mouslistener is added to the table header
         tabs.get(TASKS_TABLE_NAME)
                 .setColumnPopupMenu(new ColumnPopupMenu(tabs.get(TASKS_TABLE_NAME).getFilter()));
-        tabs.get(REPORTS_TABLE_NAME)
-                .setColumnPopupMenu(new ColumnPopupMenu(tabs.get(REPORTS_TABLE_NAME).getFilter()));
-        tabs.get(ARCHIVE_TABLE_NAME)
-                .setColumnPopupMenu(new ColumnPopupMenu(tabs.get(ARCHIVE_TABLE_NAME).getFilter()));
+        tabs.get(TASKFILES_TABLE_NAME)
+                .setColumnPopupMenu(new ColumnPopupMenu(tabs.get(TASKFILES_TABLE_NAME).getFilter()));
+        tabs.get(TASKNOTES_TABLE_NAME)
+                .setColumnPopupMenu(new ColumnPopupMenu(tabs.get(TASKNOTES_TABLE_NAME).getFilter()));
         
         // load data from database to tables
         loadTables(tabs);
@@ -184,13 +184,13 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         
         // set the cell renderers for each tabName
         tabs.get(TASKS_TABLE_NAME).setCellRenderer(new JTableCellRenderer(assignmentTable));
-        tabs.get(REPORTS_TABLE_NAME).setCellRenderer(new JTableCellRenderer(reportTable));
-        tabs.get(ARCHIVE_TABLE_NAME).setCellRenderer(new JTableCellRenderer(archiveTable));
+        tabs.get(TASKFILES_TABLE_NAME).setCellRenderer(new JTableCellRenderer(reportTable));
+        tabs.get(TASKNOTES_TABLE_NAME).setCellRenderer(new JTableCellRenderer(archiveTable));
         
         // set the modified table data objects for each tabName
         tabs.get(TASKS_TABLE_NAME).setTableData(new ModifiedTableData(assignmentTable));
-        tabs.get(REPORTS_TABLE_NAME).setTableData(new ModifiedTableData(reportTable));
-        tabs.get(ARCHIVE_TABLE_NAME).setTableData(new ModifiedTableData(archiveTable));
+        tabs.get(TASKFILES_TABLE_NAME).setTableData(new ModifiedTableData(reportTable));
+        tabs.get(TASKNOTES_TABLE_NAME).setTableData(new ModifiedTableData(archiveTable));
         
         // set title of window to Analyster
         this.setTitle("Analyster");
@@ -641,7 +641,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tabbedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE)
-            .addComponent(jPanelEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 894, Short.MAX_VALUE)
+            .addComponent(jPanelEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jPanelSQL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(4, 4, 4))
@@ -1654,7 +1654,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         switch (table.getName()) {
 
-            case REPORTS_TABLE_NAME: {
+            case TASKFILES_TABLE_NAME: {
                 int i;
                 for (i = 0; i < width.length; i++) {
                     int pWidth = Math.round(width[i]);
@@ -2183,7 +2183,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                 boolean isSelected, boolean hasFocus, int row, int column) {
             wrappedRenderer.getTableCellRendererComponent(table, value,
                     isSelected, hasFocus, row, column);
-            if (table.getName().equals(REPORTS_TABLE_NAME)) {
+            if (table.getName().equals(TASKFILES_TABLE_NAME)) {
 
                 if (column < table.getColumnCount() - 4) {
                     label.setHorizontalAlignment(JLabel.CENTER);
