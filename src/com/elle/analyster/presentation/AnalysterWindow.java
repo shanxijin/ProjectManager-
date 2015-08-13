@@ -193,7 +193,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         tabs.get(TASKNOTES_TABLE_NAME).setTableData(new ModifiedTableData(task_notesTable));
         
         // set title of window to Analyster
-        this.setTitle("Analyster");
+        this.setTitle("Project Manager");
     }
 
     /**
@@ -1650,10 +1650,30 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
 
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         switch (table.getName()) {
+            
+            // Set the format for table task.
+            case TASKS_TABLE_NAME: {
+                for (int i = 0; i < width.length; i++) {
+                    int pWidth = Math.round(width[i]);
+                    table.getColumnModel().getColumn(i).setPreferredWidth(pWidth);
+                    if (i == 2 || i == 4 || i == 5 || i == 6) {
+                        table.getColumnModel().getColumn(i).setCellRenderer(leftRenderer);
+                    } else {
+                        table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+                    }
+                    widthFixedColumns += pWidth;
+                }
+                Double tw = jPanel5.getSize().getWidth() - 15;
+                int twi = tw.intValue();
+                table.getColumnModel().getColumn(width.length).setPreferredWidth(twi - widthFixedColumns);
+                table.setMinimumSize(new Dimension(1200, 730));
+                table.setPreferredScrollableViewportSize(new Dimension(1200, 730));
+                break;
+            }
 
+            // Set the format for table task_files
             case TASKFILES_TABLE_NAME: {
-                int i;
-                for (i = 0; i < width.length; i++) {
+                for (int i = 0; i < width.length; i++) {
                     int pWidth = Math.round(width[i]);
                     table.getColumnModel().getColumn(i).setPreferredWidth(pWidth);
                     if (i >= width.length - 3) {
@@ -1663,27 +1683,38 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                     }
                     widthFixedColumns += pWidth;
                 }
-                Double tw = jPanel5.getSize().getWidth();
+                Double tw = jPanel5.getSize().getWidth() - 15;
                 int twi = tw.intValue();
-                table.getColumnModel().getColumn(width.length).setPreferredWidth(twi - (widthFixedColumns + 25));
-                table.setMinimumSize(new Dimension(908, 300));
-                table.setPreferredScrollableViewportSize(new Dimension(908, 300));
+                table.getColumnModel().getColumn(width.length).setPreferredWidth(twi - widthFixedColumns);
+                table.setMinimumSize(new Dimension(1200, 730));
+                table.setPreferredScrollableViewportSize(new Dimension(1200, 730));
                 break;
             }
-            default:
+            
+            // Set the format for table task_notes
+            case TASKNOTES_TABLE_NAME:{
                 for (int i = 0; i < width.length; i++) {
                     int pWidth = Math.round(width[i]);
                     table.getColumnModel().getColumn(i).setPreferredWidth(pWidth);
-                    table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+                    if (i == 3) {
+                        table.getColumnModel().getColumn(i).setCellRenderer(leftRenderer);
+                    } else {
+                        table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+                    }
                     widthFixedColumns += pWidth;
                 }
-                Double tw = jPanel5.getSize().getWidth();
+                Double tw = jPanel5.getSize().getWidth() - 15;
                 int twi = tw.intValue();
-                table.getColumnModel().getColumn(width.length).setPreferredWidth(twi - (widthFixedColumns + 25));
-                table.setMinimumSize(new Dimension(908, 300));
-                table.setPreferredScrollableViewportSize(new Dimension(908, 300));
+                table.getColumnModel().getColumn(width.length).setPreferredWidth(twi - widthFixedColumns);
+                table.setMinimumSize(new Dimension(1200, 730));
+                table.setPreferredScrollableViewportSize(new Dimension(1200, 730));
                 break;
-
+            }
+            
+            default:{
+                System.out.println("Load table errer!");
+                break;  
+            }
         }
     }
 
@@ -1958,7 +1989,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
        */
     public JTable loadTable(JTable table) {
         
-        String sql = "SELECT * FROM " + table.getName() + " ORDER BY symbol ASC";
+        String sql = "SELECT * FROM " + table.getName() + " ORDER BY taskID ASC";
         loadTable(sql, table);
         
         return table;
