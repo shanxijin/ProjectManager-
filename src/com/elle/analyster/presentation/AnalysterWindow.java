@@ -1642,13 +1642,16 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         leftRenderer.setHorizontalAlignment(SwingConstants.LEFT);
         
         //Center column header
-        int widthFixedColumns = 0;
         JTableHeader header = table.getTableHeader();
         if (!(header.getDefaultRenderer() instanceof AlignmentTableHeaderCellRenderer)) {
             header.setDefaultRenderer(new AlignmentTableHeaderCellRenderer(header.getDefaultRenderer()));
         }
 
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        
+        this.setPreferredSize(new Dimension(1207, 631));
+        this.setMinimumSize(new Dimension(1207, 631));              
+                      
         switch (table.getName()) {
             
             // Set the format for table task.
@@ -1661,13 +1664,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                     } else {
                         table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
                     }
-                    widthFixedColumns += pWidth;
                 }
-                Double tw = jPanel5.getSize().getWidth() - 15;
-                int twi = tw.intValue();
-                table.getColumnModel().getColumn(width.length).setPreferredWidth(twi - widthFixedColumns);
-                table.setMinimumSize(new Dimension(1200, 730));
-                table.setPreferredScrollableViewportSize(new Dimension(1200, 730));
                 break;
             }
 
@@ -1681,13 +1678,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                     } else {
                         table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
                     }
-                    widthFixedColumns += pWidth;
                 }
-                Double tw = jPanel5.getSize().getWidth() - 15;
-                int twi = tw.intValue();
-                table.getColumnModel().getColumn(width.length).setPreferredWidth(twi - widthFixedColumns);
-                table.setMinimumSize(new Dimension(1200, 730));
-                table.setPreferredScrollableViewportSize(new Dimension(1200, 730));
                 break;
             }
             
@@ -1701,13 +1692,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                     } else {
                         table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
                     }
-                    widthFixedColumns += pWidth;
                 }
-                Double tw = jPanel5.getSize().getWidth() - 15;
-                int twi = tw.intValue();
-                table.getColumnModel().getColumn(width.length).setPreferredWidth(twi - widthFixedColumns);
-                table.setMinimumSize(new Dimension(1200, 730));
-                table.setPreferredScrollableViewportSize(new Dimension(1200, 730));
                 break;
             }
             
@@ -1746,10 +1731,10 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                 if ("".equals(value)) {
                     value = null;
                     sqlChange = "UPDATE " + tableName + " SET " + columnName
-                            + " = " + value + " WHERE ID = " + id + ";";
+                            + " = " + value + " WHERE tasksID = " + id + ";";
                 } else {
                     sqlChange = "UPDATE " + tableName + " SET " + columnName
-                            + " = '" + value + "' WHERE ID = " + id + ";";
+                            + " = '" + value + "' WHERE tasksID = " + id + ";";
                 }
                 System.out.println(sqlChange);
                 statement.executeUpdate(sqlChange);

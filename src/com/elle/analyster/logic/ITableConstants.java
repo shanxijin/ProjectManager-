@@ -22,9 +22,9 @@ public interface ITableConstants {
     public static final String SYMBOL_COLUMN_NAME = "Symbol";
     
     // column width percent constants
-    public static final float[] COL_WIDTH_PER_TASKS = {60, 50, 165, 50, 235, 240, 95, 100, 35, 50};
-    public static final float[] COL_WIDTH_PER_REPORTS = {55, 60, 115, 60, 95, 275, 200};
-    public static final float[] COL_WIDTH_PER_ARCHIVE = {60, 60, 115, 845};
+    public static final float[] COL_WIDTH_PER_TASKS = {60, 50, 175, 50, 235, 240, 95, 100, 35, 50, 95};
+    public static final float[] COL_WIDTH_PER_REPORTS = {55, 60, 115, 60, 95, 275, 200, 325};
+    public static final float[] COL_WIDTH_PER_ARCHIVE = {60, 60, 115, 845, 105};
     
     // search fields for the comboBox for each table
     public static final String[] TASKS_SEARCH_FIELDS = {"programmer", "dateAssigned", "done", "rk"};
