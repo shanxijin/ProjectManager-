@@ -5,9 +5,9 @@
  * @since June 10, 2015
  * @version 0.6.3
  */
-package com.elle.analyster.presentation;
+package com.elle.ProjectManager.presentation;
 
-import com.elle.analyster.database.DBConnection;
+import com.elle.ProjectManager.database.DBConnection;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -28,7 +28,7 @@ public class LoginWindow extends JFrame {
     private String userPassword;                // user password to login
     
     // class component instances
-    private AnalysterWindow analyster;
+    private ProjectManagerWindow analyster;
     private EditDatabaseWindow editDatabaseList;
     private LogWindow logWindow;
     
@@ -391,7 +391,7 @@ public class LoginWindow extends JFrame {
         }
         
         // create an Analyster object
-        analyster = new AnalysterWindow();
+        analyster = new ProjectManagerWindow();
 
         // pass the log window to analyster
         analyster.setLogWindow(logWindow);

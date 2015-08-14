@@ -1,5 +1,5 @@
 
-package com.elle.analyster.logic;
+package com.elle.ProjectManager.logic;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,7 +1,7 @@
 
-package com.elle.analyster.logic;
+package com.elle.ProjectManager.logic;
 
-import com.elle.analyster.logic.EditableTableModel;
+import com.elle.ProjectManager.logic.EditableTableModel;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;

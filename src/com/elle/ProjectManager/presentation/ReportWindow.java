@@ -1,8 +1,8 @@
 
-package com.elle.analyster.presentation;
+package com.elle.ProjectManager.presentation;
 
-import com.elle.analyster.database.DBConnection;
-import com.elle.analyster.logic.EditableTableModel;
+import com.elle.ProjectManager.database.DBConnection;
+import com.elle.ProjectManager.logic.EditableTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
@@ -38,7 +38,7 @@ public class ReportWindow extends JDialog {
         initComponents();
         statement = DBConnection.getStatement();
         connection(sqlQuery);
-        AnalysterWindow analyster = AnalysterWindow.getInstance();
+        ProjectManagerWindow analyster = ProjectManagerWindow.getInstance();
         logWindow = analyster.getLogWindow();
     }
 

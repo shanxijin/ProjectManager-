@@ -1,8 +1,8 @@
 
-package com.elle.analyster.logic;
+package com.elle.ProjectManager.logic;
 
-import com.elle.analyster.database.ModifiedTableData;
-import com.elle.analyster.presentation.AnalysterWindow;
+import com.elle.ProjectManager.database.ModifiedTableData;
+import com.elle.ProjectManager.presentation.ProjectManagerWindow;
 import javax.swing.JTable;
 
 /**
@@ -273,7 +273,7 @@ public class Tab implements ITableConstants{
                     throw new NoSuchFieldException(errorMessage);
                 } catch (NoSuchFieldException ex) {
                     // post to log.txt
-                    AnalysterWindow.getInstance().getLogWindow().addMessageWithDate(ex.getMessage());
+                    ProjectManagerWindow.getInstance().getLogWindow().addMessageWithDate(ex.getMessage());
                     ex.printStackTrace();
                 }
         

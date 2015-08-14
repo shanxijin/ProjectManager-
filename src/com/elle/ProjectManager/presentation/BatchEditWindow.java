@@ -1,10 +1,10 @@
 
-package com.elle.analyster.presentation;
+package com.elle.ProjectManager.presentation;
 
-import com.elle.analyster.database.ModifiedData;
-import com.elle.analyster.database.ModifiedTableData;
-import com.elle.analyster.logic.Tab;
-import com.elle.analyster.logic.TableFilter;
+import com.elle.ProjectManager.database.ModifiedData;
+import com.elle.ProjectManager.database.ModifiedTableData;
+import com.elle.ProjectManager.logic.Tab;
+import com.elle.ProjectManager.logic.TableFilter;
 import java.util.ArrayList;
 import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
@@ -21,7 +21,7 @@ import javax.swing.JTable;
 public class BatchEditWindow extends JFrame {
     
     // attributes
-    private AnalysterWindow analysterWindow;
+    private ProjectManagerWindow analysterWindow;
     private JTable table;
     private Tab tab;
 
@@ -34,7 +34,7 @@ public class BatchEditWindow extends JFrame {
      */
     public BatchEditWindow() {
         initComponents();
-        analysterWindow = AnalysterWindow.getInstance();
+        analysterWindow = ProjectManagerWindow.getInstance();
         Map<String,Tab> tabs = analysterWindow.getTabs();
         String tabName = analysterWindow.getSelectedTabName();
         tab = tabs.get(tabName);

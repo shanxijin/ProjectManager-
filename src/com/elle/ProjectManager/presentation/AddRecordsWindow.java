@@ -1,10 +1,10 @@
 
-package com.elle.analyster.presentation;
+package com.elle.ProjectManager.presentation;
 
-import com.elle.analyster.logic.ColumnPopupMenu;
-import com.elle.analyster.logic.Tab;
-import com.elle.analyster.logic.TableFilter;
-import com.elle.analyster.logic.Validator;
+import com.elle.ProjectManager.logic.ColumnPopupMenu;
+import com.elle.ProjectManager.logic.Tab;
+import com.elle.ProjectManager.logic.TableFilter;
+import com.elle.ProjectManager.logic.Validator;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -35,7 +35,7 @@ public class AddRecordsWindow extends JFrame {
     private Statement statement;
     
     // components
-    private AnalysterWindow analyster;
+    private ProjectManagerWindow analyster;
     private LogWindow logWindow;
     private DefaultTableModel model;
     
@@ -57,7 +57,7 @@ public class AddRecordsWindow extends JFrame {
         
         // initialize components
         initComponents();
-        analyster = AnalysterWindow.getInstance();
+        analyster = ProjectManagerWindow.getInstance();
         logWindow = analyster.getLogWindow();
         tabs = analyster.getTabs();
         statement = analyster.getStatement();
@@ -106,7 +106,6 @@ public class AddRecordsWindow extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(550, 200));
-        setPreferredSize(new java.awt.Dimension(894, 250));
         setSize(new java.awt.Dimension(894, 560));
 
         scrollpane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);

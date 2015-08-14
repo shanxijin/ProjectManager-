@@ -1,5 +1,5 @@
 
-package com.elle.analyster.logic;
+package com.elle.ProjectManager.logic;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.Vector;

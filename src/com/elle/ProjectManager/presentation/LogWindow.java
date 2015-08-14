@@ -1,7 +1,7 @@
 
-package com.elle.analyster.presentation;
+package com.elle.ProjectManager.presentation;
 
-import com.elle.analyster.logic.LogMessage;
+import com.elle.ProjectManager.logic.LogMessage;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 

@@ -1058,3 +1058,25 @@ Start to connect local database...
 -------------------------2015-08-13 12:01:39 PM-------------------------
 2015-08-13 12:01:41 PM: Start to connect local database...
 2015-08-13 12:01:42 PM: Connect successfully!
+
+-------------------------2015-08-13 12:04:01 PM-------------------------
+2015-08-13 12:04:03 PM: Start to connect local database...
+2015-08-13 12:04:04 PM: Connect successfully!
+
+-------------------------2015-08-14 09:26:17 AM-------------------------
+2015-08-14 09:26:19 AM: Start to connect local database...
+2015-08-14 09:26:21 AM: Connect successfully!
+2015-08-14 09:27:43 AM: DELETE FROM dummy.tasks WHERE taskID IN (24);
+2015-08-14 09:27:52 AM: DELETE FROM dummy.task_files WHERE fileID IN (34);
+
+-------------------------2015-08-14 10:07:58 AM-------------------------
+2015-08-14 10:08:01 AM: Start to connect local database...
+2015-08-14 10:08:04 AM: Connect successfully!
+
+-------------------------2015-08-14 10:29:25 AM-------------------------
+
+-------------------------2015-08-14 10:56:52 AM-------------------------
+2015-08-14 10:56:55 AM: Start to connect local database...
+2015-08-14 10:56:58 AM: Connect successfully!
+
+-------------------------2015-08-14 10:57:11 AM-------------------------

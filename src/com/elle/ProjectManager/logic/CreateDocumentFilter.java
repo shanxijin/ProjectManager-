@@ -1,4 +1,4 @@
-package com.elle.analyster.logic;
+package com.elle.ProjectManager.logic;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;

@@ -1,16 +1,16 @@
-package com.elle.analyster.presentation;
+package com.elle.ProjectManager.presentation;
 
-import com.elle.analyster.database.DBConnection;
-import com.elle.analyster.logic.ColumnPopupMenu;
-import com.elle.analyster.logic.CreateDocumentFilter;
-import com.elle.analyster.logic.EditableTableModel;
-import com.elle.analyster.logic.ITableConstants;
-import com.elle.analyster.database.ModifiedData;
-import com.elle.analyster.database.ModifiedTableData;
-import com.elle.analyster.logic.Tab;
-import com.elle.analyster.logic.TableFilter;
-import static com.elle.analyster.logic.ITableConstants.TASKS_TABLE_NAME;
-import com.elle.analyster.logic.JTableCellRenderer;
+import com.elle.ProjectManager.database.DBConnection;
+import com.elle.ProjectManager.logic.ColumnPopupMenu;
+import com.elle.ProjectManager.logic.CreateDocumentFilter;
+import com.elle.ProjectManager.logic.EditableTableModel;
+import com.elle.ProjectManager.logic.ITableConstants;
+import com.elle.ProjectManager.database.ModifiedData;
+import com.elle.ProjectManager.database.ModifiedTableData;
+import com.elle.ProjectManager.logic.Tab;
+import com.elle.ProjectManager.logic.TableFilter;
+import static com.elle.ProjectManager.logic.ITableConstants.TASKS_TABLE_NAME;
+import com.elle.ProjectManager.logic.JTableCellRenderer;
 
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
@@ -37,12 +37,12 @@ import java.util.Map;
 import java.util.Vector;
 
 /**
- * AnalysterWindow
+ * ProjectManagerWindow
  * @author Carlos Igreja
  * @since June 10, 2015
  * @version 0.6.3
  */
-public class AnalysterWindow extends JFrame implements ITableConstants{
+public class ProjectManagerWindow extends JFrame implements ITableConstants{
     
     // Edit the version and date it was created for new archives and jars
     private final String CREATION_DATE = "2015-08-12";  
@@ -54,7 +54,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
     private String database;
     
     // components
-    private static AnalysterWindow instance;
+    private static ProjectManagerWindow instance;
     private AddRecordsWindow  addRecordsWindow;
     private LogWindow logWindow;
     private LoginWindow loginWindow;
@@ -66,7 +66,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
     /**
      * CONSTRUCTOR
      */
-    public AnalysterWindow() {
+    public ProjectManagerWindow() {
         
         /**
          * Note: initComponents() executes the tabpaneChanged method.
@@ -265,7 +265,6 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         menuItemRepBugSugg = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(894, 560));
 
         labelTimeLastUpdate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelTimeLastUpdate.setText("Last updated: ");
@@ -1839,7 +1838,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
                             // store selected rowIndex before the table is refreshed
                             int rowIndex = table.getSelectedRow();
 
-                            int selectedOption = JOptionPane.showOptionDialog(AnalysterWindow.getInstance(), 
+                            int selectedOption = JOptionPane.showOptionDialog(ProjectManagerWindow.getInstance(), 
                                     "Would you like to upload changes?", "Upload Changes",
                                     JOptionPane.YES_NO_OPTION, 
                                     JOptionPane.QUESTION_MESSAGE,
@@ -1880,7 +1879,7 @@ public class AnalysterWindow extends JFrame implements ITableConstants{
         });
     }
 
-    public static AnalysterWindow getInstance() {
+    public static ProjectManagerWindow getInstance() {
         return instance;
     }
 

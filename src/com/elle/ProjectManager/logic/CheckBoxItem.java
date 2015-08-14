@@ -1,5 +1,5 @@
 
-package com.elle.analyster.logic;
+package com.elle.ProjectManager.logic;
 
 import java.util.ArrayList;
 import javax.swing.JCheckBox;

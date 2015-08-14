@@ -1,5 +1,5 @@
 
-package com.elle.analyster.logic;
+package com.elle.ProjectManager.logic;
 
 import java.util.Comparator;
 import java.util.Date;
